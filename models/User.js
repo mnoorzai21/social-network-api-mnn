@@ -24,12 +24,11 @@ const userSchema = new Schema({
         ],
     },
 
-    // Need to fix this
-    friend: {
-        type: String,
-        required: true,
-        max_length: 50,
-    },
+    // Need to make sure
+    friends: [{
+        type: Schema.Types.ObjectId,
+        ref: "friends",
+    }, ],
     thoughts: [thoughtSchema],
 }, {
     toJSON: {
@@ -37,6 +36,6 @@ const userSchema = new Schema({
     },
 });
 
-const User = model("user", userSchema);
+const User = model("users", userSchema);
 
 model.export = User;

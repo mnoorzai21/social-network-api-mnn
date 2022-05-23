@@ -22,13 +22,16 @@ const thoughtSchema = new Schema({
         type: String,
         required: true,
     },
-    // Need to fix this
-    reactions: {
-        // Array of nested documents created with the reactionSchema
-    },
+    // Need to make sure
+    reactions: String,
+    reactionSchema: [],
 }, {
     toJSON: {
         getter: true,
     },
     id: false,
 });
+
+const Thought = Type("users", thoughtSchema);
+
+model.export = Thought;
