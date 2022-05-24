@@ -5,7 +5,7 @@ const reactionSchema = new Schema({
         type: Schema.Types.ObjectId,
         default: () => new Types.ObjectId(),
     },
-    thoughtBody: {
+    reactionBody: {
         type: String,
         required: true,
         max_length: 280,
@@ -21,10 +21,6 @@ const reactionSchema = new Schema({
         type: String,
         required: true,
     },
-    // Need to fix this
-    reactions: {
-        // Array of nested documents created with the reactionSchema
-    },
 }, {
     toJSON: {
         getter: true,
@@ -32,6 +28,4 @@ const reactionSchema = new Schema({
     id: false,
 });
 
-const Reaction = Type("users", reactionSchema);
-
-model.export = Reaction;
+module.exports = reactionSchema;
