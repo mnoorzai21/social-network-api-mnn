@@ -46,4 +46,24 @@ module.exports = {
                 res.status(500).json(err);
             });
     },
+    // Update user with id
+    updateThought(req, res) {
+        Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $set: req.body }, { runValidators: true, new: true })
+            .then((updateThought) =>
+                !updateThought ?
+                res.status(404).json({ message: "No user found with that ID :(" }) :
+                res.json(updateThought)
+            )
+            .catch((err) => res.status(500).json(err));
+    },
+    deleteThought(req, res) {
+        Thought.findOneAndDelete({ _id: req.params.thoughtId })
+            .then((thought) =>
+                !thought ?
+                res.status(404).json({ message: "No thought with that ID" }) :
+                User.deleteMany({ _id: { $in: thought.users } })
+            )
+            .then(() => res.json({ message: "Thought and users deleted!" }))
+            .catch((err) => res.status(500).json(err));
+    },
 };
