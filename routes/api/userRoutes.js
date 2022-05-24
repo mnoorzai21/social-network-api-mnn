@@ -4,15 +4,19 @@ const {
     getUsers,
     getSingleUser,
     createUser,
+    deleteUser,
+    updateUser,
+    addFriend,
+    removeFriend,
 } = require("../../controllers/userController");
 
 router.route("/").get(getUsers).post(createUser);
 
 // /api/users/:userId
-router.route("/:userId").get(getSingleUser);
+router.route("/:userId").get(getSingleUser).put(updateUser).delete(deleteUser);
+
+router.route("/:userId/friends").post(addFriend);
+
+router.route("/:userId.friends/:friendId").delete(removeFriend);
 
 module.exports = router;
-
-// Need to make sure that the
-// GET a single user by its _id and populated thought and friend data
-// is ok
