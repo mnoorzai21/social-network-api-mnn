@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const { User, Thought } = require("../models");
 
 // Need to fixt all these
