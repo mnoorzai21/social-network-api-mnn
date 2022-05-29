@@ -20,6 +20,7 @@
     "homepage": "https://github.com/mnoorzai21/social-network-api-mnn#readme",
     "dependencies": {
         "express": "^4.18.1",
-        "mongoose": "^6.3.4"
+        "mongoose": "^6.3.4",
+        "nodemon": "^2.0.16"
     }
 }
