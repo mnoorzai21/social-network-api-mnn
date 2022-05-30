@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-const { User, Thought } = require("../models");
+const { Thought, User } = require("../models");
 
 // Need to fixt all these
 
@@ -27,11 +26,10 @@ module.exports = {
   createThought(req, res) {
     Thought.create(req.body)
       .then((thought) => {
-        // Push the thought to user's thoughts list
         return User.findOneAndUpdate(
           { _id: req.body.userId },
           // $addToSet adds a value to an array unless the value is already present
-          { $addToSet: { thoughts: thought._id } },
+          { $push: { thoughts: thought._id } },
           // new: true show the changes
           { new: true }
         );
