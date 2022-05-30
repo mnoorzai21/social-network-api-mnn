@@ -6,7 +6,7 @@ This is an social network api application which can hold users, thoughts, and re
 
 [Repo Link](https://github.com/mnoorzai21/social-network-api-mnn)
 
-[Walkthrough Video Link](https://github.com/mnoorzai21/social-network-api-mnn)
+[Walkthrough Video Link](https://drive.google.com/drive/folders/1CzZzK_CduH0BjYJSFmuu-7EazG9W7sO_?usp=sharing)
 
 ![Application Gif](./assets/img/screenshot-1.png)
 
